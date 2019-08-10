@@ -1,0 +1,42 @@
+package protoFiles;
+
+option java_package = "proto";
+option java_outer_classname = "RoleProto";
+
+//请求登录
+message LoginReq_1001001{
+	required string account = 1;//账号
+	required string password = 2;//密码
+}
+message LoginResp_1001001{
+	required string account = 1;//账号
+	optional int64 rid = 2;//玩家id
+	optional int32 level = 3;//等级
+	repeated Item items = 4;//拥有物品
+}
+
+message Item{
+	required int32 type = 1;
+	required int32 id = 2;
+	required int32 num = 3;
+}
+
+//请求退出
+message LogoutReq_1001002{
+	required int64 rid = 2;//玩家id
+}
+message LogoutResp_1001002{
+	required int64 rid = 2;//玩家id
+}
+
+//测试List
+message ListTestReq_1001003{
+	repeated int32 id = 1;
+	repeated int64 num = 2;
+	repeated string players = 3;
+}
+message ListTestResp_1001003{
+	repeated int32 id = 1;
+	repeated int64 num = 2;
+	repeated string players = 3;
+}
